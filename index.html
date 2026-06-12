@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>KBC Raport Generator - Triple Dynamic AI Edition</title>
+    <title>KBC Raport Generator - Smart Multi-Dimension AI</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -21,21 +22,6 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
-        .card-content {
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .custom-card-checkbox input:checked + .card-content {
-            background: linear-gradient(145deg, #ffffff, #f0fdf4);
-            border-color: #059669;
-            box-shadow: 0 8px 20px -8px rgba(5, 150, 105, 0.3);
-            transform: translateY(-2px);
-        }
-        .custom-card-checkbox input:checked + .card-content .icon-wrapper {
-            background: #059669;
-            color: #ffffff;
-        }
         .live-edit-box[contenteditable="true"] { 
             background-color: #fffbeb !important; 
             border: 2px dashed #d97706 !important; 
@@ -49,18 +35,21 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased text-slate-800">
 
-    <div class="container mx-auto px-4 py-8 max-w-5xl flex-1 flex flex-col justify-center">
+    <div class="container mx-auto px-4 py-8 max-w-4xl flex-1 flex flex-col justify-center">
+        <!-- Header -->
         <div class="text-center mb-6">
             <div class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-800 px-3.5 py-1.5 rounded-full text-[11px] font-bold border border-emerald-500/20 mb-3">
                 <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                TRIPLE OUTPUT ENGINE - AUTOMATIC SUBJECT DETECTION
+                SMART MULTI-COMBINATION ENGINE (AUTOMATIC MIXING)
             </div>
             <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent">KBC Raport Generator AI</h1>
-            <p class="text-slate-500 text-xs font-semibold mt-1">Menghasilkan 3 Variasi Kalimat Berbeda yang Mengalir Alami, Terpadu, dan Utuh</p>
+            <p class="text-slate-500 text-xs font-semibold mt-1">Otomatisasi 3 Kombinasi Panca Cinta & Dimensi Lulusan Terbaik yang Mendekati Materi Pokok</p>
         </div>
 
+        <!-- Main Workspace Card -->
         <div class="glass-panel rounded-3xl shadow-xl border border-slate-200 overflow-hidden flex flex-col space-y-0">
             
+            <!-- API Key Input Panel -->
             <div class="p-4 bg-amber-500/5 border-b border-slate-200 grid grid-cols-1 sm:grid-cols-4 gap-3 items-center">
                 <div class="sm:col-span-1">
                     <label class="block text-[10px] font-extrabold text-amber-700 uppercase tracking-widest">Google AI Studio API Key</label>
@@ -70,203 +59,65 @@
                 </div>
             </div>
 
+            <!-- Input Materi Pokok -->
             <div class="p-6 border-b border-slate-200 bg-white/40">
                 <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                     <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    Fokus Materi Pokok & Kompetensi Dasar (CP / TP Semua Mapel)
+                    Ketik Materi Pokok & Kompetensi Dasar (CP / TP Semua Mapel)
                 </label>
-                <input type="text" id="materiInput" placeholder="Ketik bebas (AI otomatis mendeteksi rumpun mapel agama, sains, sosial, bahasa, dll)..." class="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-800 font-bold text-sm shadow-inner placeholder:text-slate-300 focus:outline-none focus:border-emerald-500">
+                <input type="text" id="materiInput" placeholder="Contoh: mengidentifikasi keragaman suku dan budaya / menganalisis rantai makanan" class="w-full bg-white border border-slate-200 rounded-2xl px-4 py-4 text-slate-800 font-bold text-sm shadow-inner placeholder:text-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all">
+                <p class="text-[11px] text-slate-400 font-semibold mt-2">*AI akan otomatis meracik 3 pasang kombinasi instrumen Panca Cinta & Dimensi Lulusan yang paling pas dan mendekati materi pokok Anda di bawah ini.</p>
             </div>
 
-            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch bg-white/20">
-                
-                <div class="flex flex-col h-full">
-                    <div class="flex items-center gap-2 mb-3.5 shrink-0">
-                        <span class="w-5 h-5 flex items-center justify-center text-[10px] bg-emerald-600 text-white font-extrabold rounded-lg shadow-sm">A</span>
-                        <h2 class="font-extrabold text-slate-700 text-xs uppercase tracking-widest">Instrumen Panca Cinta</h2>
-                    </div>
-                    
-                    <div class="flex flex-col flex-1 gap-3">
-                        <label class="custom-card-checkbox relative block flex-1">
-                            <input type="radio" name="panca" value="Cinta Allah & Rasul (keimanan, ketakwaan, rasa syukur atas keagungan Swt., serta meneladani kasih sayang Rasulullah)" checked class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🤍</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Allah & Rasul</span>
-                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Nilai spiritual, keteladanan ibadah & akhlak</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block flex-1">
-                            <input type="radio" name="panca" value="Cinta Ilmu (semangat ketekunan belajar sepanjang hayat, penalaran kritis, serta adab menuntut ilmu)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">📚</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Ilmu</span>
-                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Pembelajar hayat, nalar kritis, literasi</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block flex-1">
-                            <input type="radio" name="panca" value="Cinta Lingkungan (ekoteologi, kesadaran menjaga kelestarian alam sekitar, merawat ekosistem, serta menghindari kerusakan lingkungan/fasad)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🌏</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Lingkungan</span>
-                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Ekoteologi, melestarikan alam & ekosistem</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block flex-1">
-                            <input type="radio" name="panca" value="Cinta Diri & Sesama Manusia (pengelolaan emosi diri yang positif, sikap empati sosial yang berkembang, toleransi, serta ukhuwah insaniyah)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">💞</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Diri & Sesama</span>
-                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Empati sosial, toleransi, kesehatan mental</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block flex-1">
-                            <input type="radio" name="panca" value="Cinta Tanah Air (semangat persaudaraan kebangsaan/ukhuwah wathaniyah, jiwa nasionalisme yang kuat, serta kebanggaan akan identitas budaya bangsa)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🇮🇩</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Tanah Air</span>
-                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Ukhuwah wathaniyah, jiwa nasionalisme</p>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="flex flex-col h-full">
-                    <div class="flex items-center gap-2 mb-3.5 shrink-0">
-                        <span class="w-5 h-5 flex items-center justify-center text-[10px] bg-indigo-600 text-white font-extrabold rounded-lg shadow-sm">B</span>
-                        <h2 class="font-extrabold text-slate-700 text-xs uppercase tracking-widest">Dimensi Pendukung (Pilih 1)</h2>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 gap-2 flex-1">
-                        <label class="custom-card-checkbox relative block">
-                            <input type="radio" name="dimensi" value="Keimanan dan Ketakwaan (memahami dan mengamalkan ajaran agama dengan kesadaran penuh, serta memunculkan moralitas konsisten dan akhlak mulia sehari-hari)" checked class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🕌</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">1. Keimanan & Ketakwaan</span>
-                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Menjaga akhlak mulia dan moralitas</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block">
-                            <input type="radio" name="dimensi" value="Kewargaan (bangga terhadap identitas budaya Indonesia, menolak stereotip dan diskriminasi, serta menaati aturan ketaatan Negara Kesatuan Republik Indonesia)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🏛️</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">2. Kewargaan</span>
-                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Menolak stereotip dan aktif menjaga NKRI</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block">
-                            <input type="radio" name="dimensi" value="Penalaran Kritis (mempunyai rasa ingin tahu yang besar, mampu menganalisis gagasan, menyampaikan argumen logis terstruktur, serta memprioritaskan informasi valid)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🧠</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">3. Penalaran Kritis</span>
-                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Argumen logis terstruktur & menyaring info</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block">
-                            <input type="radio" name="dimensi" value="Kreativitas (mengembangkan pemikiran inovatif, menciptakan hasil karya kreatif yang kompleks, serta menemukan alternatif solusi untuk masalah)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🎨</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">4. Kreativitas</span>
-                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Gagasan inovatif & alternatif solusi</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block">
-                            <input type="radio" name="dimensi" value="Kolaborasi (menunjukkan sikap peduli terhadap lingkungan, suka berbagi kebahagiaan, serta aktif bekerja sama dalam kelompok beragam)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🤝</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">5. Kolaborasi</span>
-                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Sikap peduli, berbagi, dan kerja kelompok</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block">
-                            <input type="radio" name="dimensi" value="Kemandirian (bertanggung jawab penuh atas tugas, berinisiatif tinggi tanpa paksaan, serta rutin melakukan refleksi evaluasi diri)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🚶</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">6. Kemandirian</span>
-                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Tanggung jawab, inisiatif, & refleksi diri</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block">
-                            <input type="radio" name="dimensi" value="Kesehatan (membiasakan hidup bersih, menjaga kebugaran fisik dan kesiapan mental, serta merawat kesehatan lingkungan sekitar)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">💪</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">7. Kesehatan</span>
-                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Kebugaran fisik-mental & higienis</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="custom-card-checkbox relative block">
-                            <input type="radio" name="dimensi" value="Komunikasi (menyimak dengan seksama, berbicara secara runtut, serta terampil menulis untuk mengomunikasikan gagasan sesuai etika)" class="sr-only">
-                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl cursor-pointer h-full">
-                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">💬</div>
-                                <div class="flex-1 min-w-0">
-                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">8. Komunikasi</span>
-                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Menganalisis & menyampaikan gagasan etis</p>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="p-6 border-t border-slate-200 bg-white/50 text-center">
+            <!-- Action Panel -->
+            <div class="p-4 border-b border-slate-200 bg-white/50 text-center">
                 <button onclick="askGeminiAI()" id="btnGenerate" class="w-full btn-gradient text-white font-bold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-all cursor-pointer text-sm flex items-center justify-center gap-2">
-                    ✨ Ambil 3 Pilihan Narasi Raport via Gemini AI
+                    🚀 Ambil 3 Opsi Kombinasi Kalimat Raport via Gemini AI
                 </button>
             </div>
 
-            <div class="p-6 bg-slate-50/70 border-t border-slate-200 grid grid-cols-1 gap-6">
+            <!-- Area 3 Kotak Output Berbeda Berdasarkan Multi-Kombinasi -->
+            <div class="p-6 bg-slate-50/70 grid grid-cols-1 gap-6">
                 
-                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-2">
-                    <div class="flex justify-between items-center">
-                        <span class="text-[11px] bg-emerald-100 text-emerald-800 font-extrabold px-2.5 py-1 rounded-lg">PILIHAN KALIMAT A</span>
-                        <button onclick="copySpecificOutput('outA', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1.5 rounded-xl cursor-pointer transition-colors">Salin Opsi A</button>
+                <!-- Kotak Pilihan 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+                    <div class="flex justify-between items-start gap-4">
+                        <div class="flex flex-wrap gap-1.5" id="tagsA">
+                            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-md border border-emerald-200/50">Panca Cinta A</span>
+                            <span class="text-[10px] bg-indigo-50 text-indigo-700 font-bold px-2 py-0.5 rounded-md border border-indigo-200/50">Dimensi A</span>
+                        </div>
+                        <button onclick="copySpecificOutput('outA', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1 rounded-xl cursor-pointer transition-colors shrink-0">Salin Opsi A</button>
                     </div>
                     <div id="outA" class="text-slate-800 font-bold text-xs leading-relaxed min-h-[50px] pt-1" contenteditable="true">
-                        <span class="text-slate-300 font-semibold italic">Teks Opsi A siap ditampilkan di sini...</span>
+                        <span class="text-slate-300 font-semibold italic">Teks Opsi Rangkaian A siap ditampilkan...</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-2">
-                    <div class="flex justify-between items-center">
-                        <span class="text-[11px] bg-indigo-100 text-indigo-800 font-extrabold px-2.5 py-1 rounded-lg">PILIHAN KALIMAT B</span>
-                        <button onclick="copySpecificOutput('outB', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1.5 rounded-xl cursor-pointer transition-colors">Salin Opsi B</button>
+                <!-- Kotak Pilihan 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+                    <div class="flex justify-between items-start gap-4">
+                        <div class="flex flex-wrap gap-1.5" id="tagsB">
+                            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-md border border-emerald-200/50">Panca Cinta B</span>
+                            <span class="text-[10px] bg-indigo-50 text-indigo-700 font-bold px-2 py-0.5 rounded-md border border-indigo-200/50">Dimensi B</span>
+                        </div>
+                        <button onclick="copySpecificOutput('outB', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1 rounded-xl cursor-pointer transition-colors shrink-0">Salin Opsi B</button>
                     </div>
                     <div id="outB" class="text-slate-800 font-bold text-xs leading-relaxed min-h-[50px] pt-1" contenteditable="true">
-                        <span class="text-slate-300 font-semibold italic">Teks Opsi B siap ditampilkan di sini...</span>
+                        <span class="text-slate-300 font-semibold italic">Teks Opsi Rangkaian B siap ditampilkan...</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-2">
-                    <div class="flex justify-between items-center">
-                        <span class="text-[11px] bg-amber-100 text-amber-800 font-extrabold px-2.5 py-1 rounded-lg">PILIHAN KALIMAT C</span>
-                        <button onclick="copySpecificOutput('outC', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1.5 rounded-xl cursor-pointer transition-colors">Salin Opsi C</button>
+                <!-- Kotak Pilihan 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+                    <div class="flex justify-between items-start gap-4">
+                        <div class="flex flex-wrap gap-1.5" id="tagsC">
+                            <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-md border border-emerald-200/50">Panca Cinta C</span>
+                            <span class="text-[10px] bg-indigo-50 text-indigo-700 font-bold px-2 py-0.5 rounded-md border border-indigo-200/50">Dimensi C</span>
+                        </div>
+                        <button onclick="copySpecificOutput('outC', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1 rounded-xl cursor-pointer transition-colors shrink-0">Salin Opsi C</button>
                     </div>
                     <div id="outC" class="text-slate-800 font-bold text-xs leading-relaxed min-h-[50px] pt-1" contenteditable="true">
-                        <span class="text-slate-300 font-semibold italic">Teks Opsi C siap ditampilkan di sini...</span>
+                        <span class="text-slate-300 font-semibold italic">Teks Opsi Rangkaian C siap ditampilkan...</span>
                     </div>
                 </div>
 
@@ -274,8 +125,10 @@
         </div>
     </div>
 
+    <!-- JavaScript Smart Core Engine -->
     <script>
-        // Simpan & Muat API Key otomatis dari Local Storage
+        let lastOutputA = '', lastOutputB = '', lastOutputC = '';
+
         window.addEventListener('DOMContentLoaded', () => {
             const savedKey = localStorage.getItem('gemini_api_key_kbc');
             if (savedKey) {
@@ -288,49 +141,15 @@
             localStorage.setItem('gemini_api_key_kbc', e.target.value.trim());
         });
 
-        // Auto Router Kartu Opsi Rumpun Materi Pokok
-        document.getElementById('materiInput').addEventListener('input', function(e) {
-            const text = e.target.value.toLowerCase();
-            let pancaValue = "";
-            let dimensiValue = "";
-
-            if (text.includes('shalat') || text.includes('sholat') || text.includes('ibadah') || text.includes('nabi') || text.includes('rasul') || text.includes('infaq') || text.includes('sedekah') || text.includes('zakat') || text.includes('hadis') || text.includes('hadits') || text.includes('qur') || text.includes('akidah') || text.includes('fikih')) {
-                pancaValue = "Cinta Allah & Rasul (Beribadah dengan penuh kesadaran diri, iman takwa, keteladanan akhlak mulia Nabi)";
-                dimensiValue = "Keimanan dan Ketakwaan (memahami dan mengamalkan ajaran agama dengan kesadaran penuh, serta memunculkan moralitas konsisten dan akhlak mulia sehari-hari)";
-            } else if (text.includes('ekosistem') || text.includes('alam') || text.includes('lingkungan') || text.includes('hewan') || text.includes('tumbuhan') || text.includes('sampah') || text.includes('cuaca') || text.includes('bumi') || text.includes('tata surya') || text.includes('gaya') || text.includes('energi')) {
-                pancaValue = "Cinta Lingkungan (ekoteologi, kesadaran menjaga kelestarian alam sekitar, merawat ekosistem, serta menghindari kerusakan lingkungan/fasad)";
-                dimensiValue = "Kreativitas (mengembangkan pemikiran inovatif, menciptakan hasil karya kreatif yang kompleks, serta menemukan alternatif solusi untuk masalah)";
-            } else if (text.includes('fitnah') || text.includes('namimah') || text.includes('ghibah') || text.includes('tercela') || text.includes('bohong') || text.includes('emosi') || text.includes('perundungan') || text.includes('bully')) {
-                pancaValue = "Cinta Diri & Sesama Manusia (pengelolaan emosi diri yang positif, sikap empati sosial yang berkembang, toleransi, serta ukhuwah insaniyah)";
-                dimensiValue = "Kolaborasi (menunjukkan sikap peduli terhadap lingkungan, suka berbagi kebahagiaan, serta aktif bekerja sama dalam kelompok beragam)";
-            } else if (text.includes('pancasila') || text.includes('pahlawan') || text.includes('sejarah') || text.includes('indonesia') || text.includes('negara') || text.includes('nkri') || text.includes('suku') || text.includes('ras') || text.includes('golongan') || text.includes('budaya')) {
-                pancaValue = "Cinta Tanah Air (semangat persaudaraan kebangsaan/ukhuwah wathaniyah, jiwa nasionalisme yang kuat, serta kebanggaan akan identitas budaya bangsa)";
-                dimensiValue = "Kewargaan (bangga terhadap identitas budaya Indonesia, menolak stereotip dan diskriminasi, serta menaati aturan ketaatan Negara Kesatuan Republik Indonesia)";
-            }
-
-            if (pancaValue) {
-                const radioP = document.querySelector(`input[name="panca"][value="${pancaValue}"]`);
-                if (radioP) radioP.checked = true;
-            }
-            if (dimensiValue) {
-                const radioD = document.querySelector(`input[name="dimensi"][value="${dimensiValue}"]`);
-                if (radioD) radioD.checked = true;
-            }
-        });
-
         // Pembersihan Tanda Titik Nakal Di Tengah Kalimat via Regex
         function cleanMiddlePeriods(text) {
             let cleaned = text.trim();
-            // Buang tanda petik pembungkus jika AI iseng menyisipkannya
             cleaned = cleaned.replace(/^"|"$/g, '');
-            
-            // Jika ada titik di tengah, hancurkan dan jembatani dengan konjungsi 'serta'
             if ((cleaned.match(/\./g) || []).length > 1) {
                 const parts = cleaned.split('.');
                 const lastPart = parts.pop();
                 cleaned = parts.join(' serta') + '.' + lastPart;
             }
-            // Sanitasi spasi ganda atau anomali tanda baca
             return cleaned.replace(/\s+/g, ' ').replace(/\s\./g, '.');
         }
 
@@ -349,36 +168,64 @@
                 return;
             }
 
-            const pancaSelected = document.querySelector('input[name="panca"]:checked').value;
-            const dimensiSelected = document.querySelector('input[name="dimensi"]:checked').value;
-
-            // Efek Loading Sinkronisasi 3 Box
             btnGenerate.disabled = true;
-            btnGenerate.innerText = "⏳ Gemini AI sedang menenun 3 Opsi Kalimat...";
-            document.getElementById('outA').innerHTML = `<span class="text-emerald-600/50 animate-pulse font-semibold">Menyusun variasi kalimat panjang A...</span>`;
-            document.getElementById('outB').innerHTML = `<span class="text-indigo-600/50 animate-pulse font-semibold">Menyusun variasi kalimat panjang B...</span>`;
-            document.getElementById('outC').innerHTML = `<span class="text-amber-600/50 animate-pulse font-semibold">Menyusun variasi kalimat panjang C...</span>`;
+            btnGenerate.innerText = "⏳ Gemini AI sedang merajut 3 Rumpun Kombinasi Campuran...";
+            
+            document.getElementById('outA').innerHTML = `<span class="text-emerald-600/50 animate-pulse font-semibold">Menemukan Kombinasi Terdekat 1 & Menyusun Kalimat...</span>`;
+            document.getElementById('outB').innerHTML = `<span class="text-indigo-600/50 animate-pulse font-semibold">Menemukan Kombinasi Terdekat 2 & Menyusun Kalimat...</span>`;
+            document.getElementById('outC').innerHTML = `<span class="text-amber-600/50 animate-pulse font-semibold">Menemukan Kombinasi Terdekat 3 & Menyusun Kalimat...</span>`;
 
-            // Prompt Rekayasa JSON Multi-Output Kalimat Panjang Utuh Tanpa Titik
-            const promptTriple = `Anda adalah seorang Guru Senior sekolah dasar/madrasah yang mahir menulis deskripsi capaian rapor Kurikulum Berbasis Cinta (KBC) yang disesuaikan dengan konteks spesifik mata pelajaran yang diinput (baik itu Agama, IPAS, Bahasa, Pancasila, dll).
-Tugas Anda adalah memproses materi: "${materi}", instrumen panca cinta: "${pancaSelected}", dan dimensi lulusan: "${dimensiSelected}" menjadi 3 PILIHAN KALIMAT PANJANG YANG BERBEDA VARIASI DIKSI DAN GAYA BAHASANYA.
+            // Prompt Rekayasa JSON Campuran Multi-Kombinasi Otomatis Berbasis Panca Cinta & 8 Dimensi
+            const promptMixing = `Anda adalah seorang Guru Senior madrasah yang ahli menulis deskripsi capaian rapor Kurikulum Berbasis Cinta (KBC).
+Tugas Anda adalah menganalisis materi pelajaran: "${materi}", lalu memilih 3 pasang kombinasi berbeda antara Panca Cinta dan 8 Dimensi Kelulusan yang PALING MENDEKATI, PALING COCOK, DAN PALING RELEVAN dengan materi tersebut, kemudian menuangkannya ke dalam 3 pilihan kalimat panjang yang mengalir alami.
+
+Rumpun Panca Cinta sebagai Referensi Pilihan:
+- Cinta Allah & Rasul (spiritual, keteladanan ibadah & akhlak mulia)
+- Cinta Ilmu (semangat ketekunan belajar sepanjang hayat, penalaran kritis)
+- Cinta Lingkungan (ekoteologi, kesadaran menjaga kelestarian alam & ekosistem)[cite: 1]
+- Cinta Diri & Sesama Manusia (empati sosial, toleransi, ukhuwah insaniyah)[cite: 1]
+- Cinta Tanah Air (semangat persaudaraan kebangsaan, jiwa nasionalisme)[cite: 1]
+
+Rumpun 8 Dimensi Kelulusan sebagai Referensi Pilihan:
+1. Keimanan dan Ketakwaan (memahami-mengamalkan ajaran agama, akhlak mulia)
+2. Kewargaan (bangga identitas budaya nasional, menolak stereotip/diskriminasi)
+3. Penalaran Kritis (menganalisis gagasan, argumen logis terstruktur)
+4. Kreativitas (mengembangkan pemikiran inovatif, alternatif solusi)
+5. Kolaborasi (sikap peduli, berbagi kebahagiaan, kerja kelompok)
+6. Kemandirian (bertanggung jawab, berinisiatif, refleksi evaluasi diri)
+7. Kesehatan (hidup bersih-sehat, kebugaran fisik-mental, merawat ekosistem)
+8. Komunikasi (menyimak, membaca, menulis gagasan sesuai etika sosial)
 
 ATURAN REKAYASA KALIMAT (MUTLAK):
 1. JANGAN PERNAH gunakan frasa pembuka kaku seperti "Menunjukkan penguasaan...", "Mampu...", atau "Menunjukkan kemampuan..." di awal kalimat pada semua opsi!
-2. Setiap pilihan KALIMAT WAJIB LANGSUNG dimulai dengan Kata Kerja Operasional (KKO) aktif (contoh: Menjelaskan, Memahami, Menganalisis, Mempraktikkan, Menghindari, Menerapkan, Mengidentifikasi, dsb) yang paling pas dengan nuansa akademis materi pelajaran tersebut.
-3. HANYA BOLEH ADA SATU TANDA TITIK (.) DI AKHIR MASING-MASING PILIHAN KALIMAT! DILARANG KERAS menggunakan tanda titik di tengah-tengah kalimat.
-4. Gunakan jembatan konjungsi yang anggun dan mengalir lancar (fluid) khas tulisan manusia asli agar antar klausa menyatu tanpa patah-patah oleh koma.
-5. Berikan output dalam format JSON objek dengan struktur kunci berupa "opsiA", "opsiB", dan "opsiC". Jangan berikan teks pengantar atau markdown block apa pun selain isi JSON mentah tersebut.
+2. Kalimat WAJIB LANGSUNG dimulai dengan Kata Kerja Operasional (KKO) aktif (contoh: Menjelaskan, Memahami, Menganalisis, Mempraktikkan, Menghindari, Menerapkan, Mengidentifikasi, dsb) sesuai jenis mapelnya.
+3. HANYA BOLEH ADA SATU TANDA TITIK (.) DI AKHIR MASING-MASING PILIHAN KALIMAT! DILARANG KERAS menggunakan tanda titik di tengah-tengah kalimat. Leburkan semua aspek ke dalam satu aliran kalimat panjang tunggal memakai konjungsi naratif manusia asli.
+4. Berikan output dalam format JSON objek dengan struktur ketat seperti di bawah ini, jangan berikan teks pengantar atau markdown block selain isi JSON mentah:
 
-CONTOH RUJUKAN STRUKTUR PADA SETIAP OPSI (Satu kalimat panjang tanpa titik di tengah):
-"Mengidentifikasi beragam suku, ras, agama, dan antar golongan yang ada di Indonesia sebagai kekayaan tak ternilai yang diikat erat oleh semangat persaudaraan kebangsaan melalui pembiasaan diri menolak stereotip serta diskriminasi guna menunjukkan kematangan jiwa nasionalisme sekaligus mencerminkan ketaatan pada aturan Negara Kesatuan Republik Indonesia serta bangga akan identitas budaya bangsa."`;
+{
+  "opsiA": {
+    "pancaCinta": "Nama Kategori Panca Cinta Terpilih A",
+    "dimensi": "Nama Kategori Dimensi Terpilih A",
+    "kalimat": "Isi rangkaian kalimat panjang utuh tanpa titik di tengah"
+  },
+  "opsiB": {
+    "pancaCinta": "Nama Kategori Panca Cinta Terpilih B",
+    "dimensi": "Nama Kategori Dimensi Terpilih B",
+    "kalimat": "Isi rangkaian kalimat panjang utuh tanpa titik di tengah"
+  },
+  "opsiC": {
+    "pancaCinta": "Nama Kategori Panca Cinta Terpilih C",
+    "dimensi": "Nama Kategori Dimensi Terpilih C",
+    "kalimat": "Isi rangkaian kalimat panjang utuh tanpa titik di tengah"
+  }
+}`;
 
             try {
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: promptTriple }] }],
+                        contents: [{ parts: [{ text: promptMixing }] }],
                         generationConfig: { responseMimeType: "application/json" }
                     })
                 });
@@ -389,28 +236,46 @@ CONTOH RUJUKAN STRUKTUR PADA SETIAP OPSI (Satu kalimat panjang tanpa titik di te
                     const jsonRaw = data.candidates[0].content.parts[0].text.trim();
                     const resultObj = JSON.parse(jsonRaw);
 
-                    // Tampilkan hasil pembersihan ke masing-masing Kotak Output
-                    document.getElementById('outA').innerText = cleanMiddlePeriods(resultObj.opsiA);
-                    document.getElementById('outB').innerText = cleanMiddlePeriods(resultObj.opsiB);
-                    document.getElementById('outC').innerText = cleanMiddlePeriods(resultObj.opsiC);
+                    // Update Badge Label Tag Info Instrumen yang dipilih otomatis oleh AI
+                    document.getElementById('tagsA').innerHTML = `
+                        <span class="text-[10px] bg-emerald-50 text-emerald-700 font-extrabold px-2.5 py-0.5 rounded-md border border-emerald-200/60">🌿 ${resultObj.opsiA.pancaCinta}</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 font-extrabold px-2.5 py-0.5 rounded-md border border-indigo-200/60">⭐ ${resultObj.opsiA.dimensi}</span>
+                    `;
+                    document.getElementById('tagsB').innerHTML = `
+                        <span class="text-[10px] bg-emerald-50 text-emerald-700 font-extrabold px-2.5 py-0.5 rounded-md border border-emerald-200/60">🌿 ${resultObj.opsiB.pancaCinta}</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 font-extrabold px-2.5 py-0.5 rounded-md border border-indigo-200/60">⭐ ${resultObj.opsiB.dimensi}</span>
+                    `;
+                    document.getElementById('tagsC').innerHTML = `
+                        <span class="text-[10px] bg-emerald-50 text-emerald-700 font-extrabold px-2.5 py-0.5 rounded-md border border-emerald-200/60">🌿 ${resultObj.opsiC.pancaCinta}</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 font-extrabold px-2.5 py-0.5 rounded-md border border-indigo-200/60">⭐ ${resultObj.opsiC.dimensi}</span>
+                    `;
+
+                    // Tampilkan kalimat hasil filter regex anti-titik tengah
+                    document.getElementById('outA').innerText = cleanMiddlePeriods(resultObj.opsiA.kalimat);
+                    document.getElementById('outB').innerText = cleanMiddlePeriods(resultObj.opsiB.kalimat);
+                    document.getElementById('outC').innerText = cleanMiddlePeriods(resultObj.opsiC.kalimat);
+
+                    lastOutputA = document.getElementById('outA').innerText;
+                    lastOutputB = document.getElementById('outB').innerText;
+                    lastOutputC = document.getElementById('outC').innerText;
                 } else {
-                    alert('Gagal mengambil data. Pastikan API Key Anda valid.');
+                    alert('Gagal memproses respon AI. Coba periksa kembali jaringan internet Anda.');
                 }
             } catch (error) {
                 console.error(error);
-                document.getElementById('outA').innerText = "Terjadi kegagalan pemrosesan.";
-                document.getElementById('outB').innerText = "Terjadi kegagalan pemrosesan.";
-                document.getElementById('outC').innerText = "Terjadi kegagalan pemrosesan.";
+                document.getElementById('outA').innerText = "Gagal memuat rangkaian opsi A.";
+                document.getElementById('outB').innerText = "Gagal memuat rangkaian opsi B.";
+                document.getElementById('outC').innerText = "Gagal memuat rangkaian opsi C.";
             } finally {
                 btnGenerate.disabled = false;
-                btnGenerate.innerText = "✨ Ambil 3 Pilihan Narasi Raport via Gemini AI";
+                btnGenerate.innerText = "🚀 Ambil 3 Opsi Kombinasi Kalimat Raport via Gemini AI";
             }
         }
 
         // Salin Kotak Spesifik
         function copySpecificOutput(divId, btn) {
             const text = document.getElementById(divId).innerText;
-            if (!text || text.includes('Menyusun') || text.includes('siap ditampilkan')) return;
+            if (!text || text.includes('Menyusun') || text.includes('Gagal')) return;
             
             navigator.clipboard.writeText(text).then(() => {
                 const originalText = btn.innerText;
@@ -426,11 +291,9 @@ CONTOH RUJUKAN STRUKTUR PADA SETIAP OPSI (Satu kalimat panjang tanpa titik di te
             });
         }
 
-        // Mekanisme Live-Edit Manual Konten oleh Guru (Opsional)
         let isEditing = false;
         function toggleEdit() {
-            // Karena sekarang editable diatur langsung 'true' pada div, tombol edit ini opsional/simbolis
-            alert('Anda bisa langsung menyunting atau mengubah teks di dalam ketiga kotak di atas secara manual kapan saja!');
+            alert('Teks di dalam ketiga kotak di atas sudah bersifat editable secara live, Anda bisa langsung klik di dalam kotak dan menyuntingnya kapan saja!');
         }
     </script>
 </body>
