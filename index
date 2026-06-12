@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>KBC Raport Generator - Premium Dashboard Edition</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: radial-gradient(circle at 0% 0%, #f4fbf7 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+        
+        /* Glassmorphism Effect untuk Workspace */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Neumorphic Taktil Card untuk Checkbox */
+        .card-content {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-card-checkbox input:checked + .card-content {
+            background: linear-gradient(145deg, #ffffff, #f0fdf4);
+            border-color: #059669;
+            box-shadow: 0 10px 20px -10px rgba(5, 150, 105, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .custom-card-checkbox input:checked + .card-content .icon-wrapper {
+            background: #059669;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+        
+        /* Live Edit Area Highlight */
+        .live-edit-box[contenteditable="true"] { 
+            background-color: #fffbeb !important; 
+            border: 2px dashed #d97706 !important; 
+            box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.1);
+            outline: none; 
+            color: #78350f;
+        }
+
+        /* Button Hover Glow Effect */
+        .btn-gradient {
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.4);
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased text-slate-800">
+
+    <div class="container mx-auto px-4 py-8 max-w-5xl flex-1 flex flex-col justify-center">
+        <!-- Header minimalis & mewah -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-800 px-3.5 py-1.5 rounded-full text-[11px] font-bold border border-emerald-500/20 mb-3 tracking-wide">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
+                KMA 1503/2025 + Permendikdasmen 10/2025
+            </div>
+            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent">KBC Raport Generator</h1>
+            <p class="text-slate-500 text-xs font-semibold mt-1">Sistem Otomatisasi Deskripsi Capaian Kompetensi Kurikulum Cinta</p>
+        </div>
+
+        <!-- Main Workspace Card (Glassmorphism look) -->
+        <div class="glass-panel rounded-3xl shadow-2xl shadow-slate-200/80 border border-white/60 overflow-hidden flex flex-col">
+            
+            <!-- Section 1: Input Utama -->
+            <div class="p-6 border-b border-slate-200/60 bg-white/40">
+                <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    Fokus Materi Pokok Pembelajaran
+                </label>
+                <input type="text" id="materiInput" placeholder="Ketik materi pokok pelajaran di sini..." class="w-full bg-white border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-800 font-bold text-sm shadow-inner placeholder:text-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all">
+            </div>
+
+            <!-- Section 2: Layout Bersebelahan dengan Pembagian Tinggi Sama Rata -->
+            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch bg-white/20">
+                
+                <!-- Kolom Kiri: Rumpun Panca Cinta -->
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center gap-2 mb-3.5 shrink-0">
+                        <span class="w-5 h-5 flex items-center justify-center text-[10px] bg-emerald-600 text-white font-extrabold rounded-lg shadow-sm">A</span>
+                        <h2 class="font-extrabold text-slate-700 text-xs uppercase tracking-widest">Instrumen Panca Cinta</h2>
+                    </div>
+                    
+                    <div class="flex flex-col flex-1 gap-3">
+                        <!-- Item 1 -->
+                        <label class="custom-card-checkbox relative block flex-1">
+                            <input type="checkbox" name="panca" value="cintaAllah" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🤍</div>
+                                <div class="flex-1 min-w-0">
+                                    <!-- Ukuran teks dinaikkan menjadi text-sm dan penjelasan menjadi text-[11px] -->
+                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Allah & Rasul</span>
+                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Ibadah, keteladanan akhlak, nilai spiritual</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Item 2 -->
+                        <label class="custom-card-checkbox relative block flex-1">
+                            <input type="checkbox" name="panca" value="cintaIlmu" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">📚</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Ilmu</span>
+                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Nalar kritis, kegemaran literasi & numerasi</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Item 3 -->
+                        <label class="custom-card-checkbox relative block flex-1">
+                            <input type="checkbox" name="panca" value="cintaLingkungan" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🌏</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Lingkungan</span>
+                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Aksi pelestarian alam, adab terhadap ekosistem</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Item 4 -->
+                        <label class="custom-card-checkbox relative block flex-1">
+                            <input type="checkbox" name="panca" value="cintaDiriSesama" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">💞</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Diri & Sesama</span>
+                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Empati, ukhuwah insaniyah, kematangan emosi</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Item 5 -->
+                        <label class="custom-card-checkbox relative block flex-1">
+                            <input type="checkbox" name="panca" value="cintaTanahAir" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-4 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-10 h-10 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🇮🇩</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-extrabold text-slate-800 text-sm block tracking-tight">Cinta Tanah Air</span>
+                                    <p class="text-[11px] text-slate-500 font-semibold truncate mt-0.5">Persaudaraan kebangsaan, kearifan lokal</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Rumpun 8 Dimensi Lulusan -->
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center gap-2 mb-3.5 shrink-0">
+                        <span class="w-5 h-5 flex items-center justify-center text-[10px] bg-indigo-600 text-white font-extrabold rounded-lg shadow-sm">B</span>
+                        <h2 class="font-extrabold text-slate-700 text-xs uppercase tracking-widest">8 Dimensi Standar Kelulusan</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 gap-2 flex-1">
+                        <!-- Dimensi 1 -->
+                        <label class="custom-card-checkbox relative block">
+                            <input type="checkbox" name="dimensi" value="Keimanan dan Ketakwaan: memahami dan mengamalkan ajaran agama dengan kesadaran, menunjukkan akhlak mulia secara konsisten" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🕌</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">1. Keimanan & Ketakwaan</span>
+                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Keseimbangan moralitas, kesadaran ibadah</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Dimensi 2 -->
+                        <label class="custom-card-checkbox relative block">
+                            <input type="checkbox" name="dimensi" value="Kewargaan: bangga terhadap identitas budaya, menolak stereotip, menaati aturan, serta berpartisipasi aktif menjaga NKRI" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🏛️</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">2. Kewargaan</span>
+                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Menolak diskriminasi, menjaga persatuan NKRI</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Dimensi 3 -->
+                        <label class="custom-card-checkbox relative block">
+                            <input type="checkbox" name="dimensi" value="Penalaran Kritis: memiliki rasa ingin tahu, menganalisis masalah, menyampaikan argumen logis terstruktur, serta memprioritaskan informasi" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🧠</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">3. Penalaran Kritis</span>
+                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Analisis masalah komprehensif, penyelesaian logis</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Dimensi 4 -->
+                        <label class="custom-card-checkbox relative block">
+                            <input type="checkbox" name="dimensi" value="Kreativitas: mengembangkan gagasan inovatif, menciptakan karya kreatif yang kompleks, serta menemukan berbagai alternatif solusi" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🎨</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">4. Kreativitas</span>
+                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Inovasi gagasan, pemecahan masalah lingkungan</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Dimensi 5 -->
+                        <label class="custom-card-checkbox relative block">
+                            <input type="checkbox" name="dimensi" value="Kolaborasi: menunjukkan sikap peduli, berbagi, dan bekerja sama dalam kelompok beragam" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🤝</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">5. Kolaborasi</span>
+                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Saling berbagi di lingkungan beragam</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Dimensi 6 -->
+                        <label class="custom-card-checkbox relative block">
+                            <input type="checkbox" name="dimensi" value="Kemandirian: bertanggung jawab, berinisiatif, serta melakukan refleksi untuk meningkatkan kemampuan dalam pembelajaran" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">🚶</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">6. Kemandirian</span>
+                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Inisiatif belajar mandiri, evaluasi internal</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Dimensi 7 -->
+                        <label class="custom-card-checkbox relative block">
+                            <input type="checkbox" name="dimensi" value="Kesehatan: membiasakan hidup bersih dan sehat, memahami kebugaran fisik-mental, serta menjaga kesehatan lingkungan" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">💪</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">7. Kesehatan</span>
+                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Kebugaran mental-fisik, ajakan hidup higienis</p>
+                                </div>
+                            </div>
+                        </label>
+                        <!-- Dimensi 8 -->
+                        <label class="custom-card-checkbox relative block">
+                            <input type="checkbox" name="dimensi" value="Komunikasi: menyimak, berbicara, membaca, dan menulis untuk menganalisis dan mengomunikasikan gagasan sesuai etika" class="sr-only">
+                            <div class="card-content flex items-center gap-3.5 p-3 rounded-2xl active:scale-[0.99] cursor-pointer h-full">
+                                <div class="icon-wrapper w-9 h-9 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center shrink-0 transition-all font-bold text-base shadow-sm">💬</div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-bold text-slate-800 text-xs block tracking-tight">8. Komunikasi</span>
+                                    <p class="text-[10px] text-slate-400 font-semibold truncate mt-0.5">Penyampaian ide santun di ruang sosial</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Section 3: Panel Tombol Kontrol -->
+            <div class="p-6 flex gap-3 border-t border-slate-200/60 bg-white/50">
+                <button onclick="generateRaport()" class="flex-1 btn-gradient text-white font-bold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-all cursor-pointer text-sm flex items-center justify-center gap-2">
+                    🚀 Ambil Nilai Raport
+                </button>
+                <button onclick="toggleEdit()" id="editBtn" class="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold py-4 px-6 rounded-2xl active:scale-[0.98] transition-all cursor-pointer text-sm flex items-center justify-center gap-1">
+                    ✏️ Edit
+                </button>
+            </div>
+
+            <!-- Section 4: Display Output Final -->
+            <div class="p-6 pt-0 pb-6 bg-white/50">
+                <div class="flex justify-between items-center mb-2.5">
+                    <label class="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Teks Deskripsi Hasil Evaluasi
+                    </label>
+                    <button onclick="copyOutput()" id="copyBtn" class="text-[11px] bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-1.5 rounded-xl font-bold hidden items-center gap-1 transition-colors cursor-pointer shadow-sm">
+                        Salin Kalimat
+                    </button>
+                </div>
+                <div id="outputBox" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-5 text-slate-800 font-bold text-xs leading-relaxed min-h-[120px] flex items-center justify-center transition-all live-edit-box shadow-inner" contenteditable="false">
+                    <div class="text-center py-2">
+                        <p class="text-slate-400 text-xs font-semibold">Pilih aspek instrumen di atas, kemudian klik tombol generate.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footnote -->
+        <div class="text-center mt-6">
+            <p class="text-[10px] text-slate-400 font-bold tracking-wider uppercase">Aplikasi Rekonstruksi Deskripsi Kurikulum Berbasis Cinta • 2026</p>
+        </div>
+    </div>
+
+    <!-- Sistem Logika Pemrosesan String Otomatis -->
+    <script>
+        // Data mapping
+        const pancaMap = {
+            cintaAllah: "memahami dan mengamalkan ajaran Islam dengan kesadaran, meneladani Rasulullah SAW",
+            cintaIlmu: "menunjukkan semangat keingintahuan yang tinggi, menganalisis gagasan, serta menggunakan literasi numerasi",
+            cintaLingkungan: "menjaga keseimbangan alam, melestarikan lingkungan, serta menghindari tindakan merusak ekosistem",
+            cintaDiriSesama: "mengelola emosi dengan baik, memiliki empati, toleransi, dan sikap saling menyayangi",
+            cintaTanahAir: "bangga terhadap budaya Indonesia, menaati aturan, serta berpartisipasi menjaga NKRI"
+        };
+
+        let isEditing = false;
+        let lastOutput = '';
+
+        // Fungsi penyambung kalimat beruntun cerdas
+        function joinWithSingleSerta(items) {
+            if (items.length === 0) return '';
+            if (items.length === 1) return items[0];
+            const last = items[items.length - 1];
+            const firsts = items.slice(0, -1);
+            return firsts.join(', ') + ', serta ' + last;
+        }
+
+        // Klasifikasi KKO cerdas
+        function detectKKO(materi) {
+            const lower = materi.toLowerCase();
+            if (lower.includes('analisis') || lower.includes('rantai makanan') || lower.includes('ekosistem')) return 'Menganalisis';
+            if (lower.includes('shalat') || lower.includes('ibadah') || lower.includes('wudhu')) return 'Mempraktikkan';
+            if (lower.includes('hindari') || lower.includes('ghibah') || lower.includes('fitnah') || lower.includes('namimah')) return 'Menghindari';
+            if (lower.includes('pancasila') || lower.includes('nasionalisme') || lower.includes('sejarah')) return 'Memahami';
+            if (lower.includes('kerjasama') || lower.includes('gotong royong') || lower.includes('kolaborasi')) return 'Menerapkan';
+            return 'Menjelaskan';
+        }
+
+        // Generator utama
+        function generateRaport() {
+            const materi = document.getElementById('materiInput').value.trim();
+            const outputBox = document.getElementById('outputBox');
+            const copyBtn = document.getElementById('copyBtn');
+
+            if (!materi) {
+                outputBox.innerHTML = `<div class="text-red-500 text-center py-4 text-xs font-bold">⚠️ Kolom materi pokok tidak boleh kosong.</div>`;
+                copyBtn.classList.add('hidden');
+                return;
+            }
+
+            const pancaChecked = Array.from(document.querySelectorAll('input[name="panca"]:checked')).map(cb => pancaMap[cb.value]);
+            const dimensiChecked = Array.from(document.querySelectorAll('input[name="dimensi"]:checked')).map(cb => cb.value.split(': ')[1] || cb.value);
+            const allCompetencies = [...pancaChecked, ...dimensiChecked];
+            
+            if (allCompetencies.length === 0) {
+                outputBox.innerHTML = `<div class="text-amber-600 text-center py-4 text-xs font-bold">⚠️ Silakan pilih minimal salah satu opsi instrumen di atas.</div>`;
+                copyBtn.classList.add('hidden');
+                return;
+            }
+
+            // Stripping prefix redundansi
+            let cleanMateri = materi;
+            const prefixes = ['menghindari ', 'memahami ', 'menjelaskan ', 'menganalisis ', 'mempraktikkan ', 'menunjukkan ', 'menerapkan '];
+            for (let p of prefixes) {
+                if (materi.toLowerCase().startsWith(p)) {
+                    cleanMateri = materi.slice(p.length);
+                    break;
+                }
+            }
+
+            const kko = detectKKO(materi);
+            const kompetensiGabung = joinWithSingleSerta(allCompetencies);
+            
+            let hasil = `${kko} ${cleanMateri}, ${kompetensiGabung}.`;
+            hasil = hasil.charAt(0).toUpperCase() + hasil.slice(1);
+            
+            lastOutput = hasil;
+            outputBox.innerHTML = `<div class="text-slate-800 font-bold leading-relaxed text-xs text-left w-full">${hasil}</div>`;
+            copyBtn.classList.remove('hidden');
+            
+            if (isEditing) toggleEdit();
+        }
+
+        // Sistem Live-editing teks
+        function toggleEdit() {
+            const outputBox = document.getElementById('outputBox');
+            const editBtn = document.getElementById('editBtn');
+            
+            if (!isEditing) {
+                if (!lastOutput) {
+                    alert('Lakukan pemrosesan nilai terlebih dahulu sebelum melakukan pengeditan.');
+                    return;
+                }
+                const currentText = outputBox.innerText;
+                outputBox.setAttribute('contenteditable', 'true');
+                outputBox.innerHTML = currentText;
+                outputBox.focus();
+                editBtn.innerHTML = '💾 Simpan';
+                editBtn.classList.remove('bg-white', 'text-slate-700');
+                editBtn.classList.add('bg-amber-500', 'text-white', 'border-amber-500');
+                isEditing = true;
+            } else {
+                const editedText = outputBox.innerText;
+                lastOutput = editedText;
+                outputBox.setAttribute('contenteditable', 'false');
+                outputBox.innerHTML = `<div class="text-slate-800 font-bold leading-relaxed text-xs text-left w-full">${editedText}</div>`;
+                editBtn.innerHTML = '✏️ Edit';
+                editBtn.classList.remove('bg-amber-500', 'text-white', 'border-amber-500');
+                editBtn.classList.add('bg-white', 'text-slate-700');
+                isEditing = false;
+            }
+        }
+
+        // Mekanisme salin papan klip cepat
+        function copyOutput() {
+            const text = lastOutput || document.getElementById('outputBox').innerText;
+            if (!text || text.includes('Pilih aspek') || text.includes('kolom materi')) return;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.innerHTML = '✓ Tersalin';
+                setTimeout(() => { btn.innerHTML = 'Salin Kalimat'; }, 2000);
+            });
+        }
+
+        // Inisialisasi awal otomatis data simulasi
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('materiInput').value = 'rantai makanan pada ekosistem';
+            document.querySelector('input[value="cintaLingkungan"]').checked = true;
+            
+            document.querySelectorAll('input[name="dimensi"]').forEach(cb => {
+                if (cb.value.includes('Penalaran Kritis') || cb.value.includes('Kolaborasi')) {
+                    cb.checked = true;
+                }
+            });
+            
+            generateRaport();
+        });
+    </script>
+</body>
+</html>
