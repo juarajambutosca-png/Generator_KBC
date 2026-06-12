@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>KBC Raport Generator - Official Stable Edition</title>
+    <title>KBC Raport Generator - Bulletproof AI Edition</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -21,21 +22,6 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
-        .card-content {
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .custom-card-checkbox input:checked + .card-content {
-            background: linear-gradient(145deg, #ffffff, #f0fdf4);
-            border-color: #059669;
-            box-shadow: 0 8px 20px -8px rgba(5, 150, 105, 0.3);
-            transform: translateY(-2px);
-        }
-        .custom-card-checkbox input:checked + .card-content .icon-wrapper {
-            background: #059669;
-            color: #ffffff;
-        }
         .live-edit-box[contenteditable="true"] { 
             background-color: #fffbeb !important; 
             border: 2px dashed #d97706 !important; 
@@ -50,17 +36,20 @@
 <body class="min-h-screen flex flex-col antialiased text-slate-800">
 
     <div class="container mx-auto px-4 py-8 max-w-4xl flex-1 flex flex-col justify-center">
+        <!-- Header -->
         <div class="text-center mb-6">
             <div class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-800 px-3.5 py-1.5 rounded-full text-[11px] font-bold border border-emerald-500/20 mb-3">
                 <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                STABLE PRODUCTION ENGINE • GEMINI 2.5 FLASH DIRECT
+                BULLETPROOF JSON PARSER ENGINE • GEMINI 2.5 FLASH
             </div>
             <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent">KBC Raport Generator AI</h1>
-            <p class="text-slate-500 text-xs font-semibold mt-1">Sistem Otomatisasi 3 Pilihan Kalimat Panjang Mengalir, Bebas Hambatan dan Stabil</p>
+            <p class="text-slate-500 text-xs font-semibold mt-1">Sistem HTML Kebal Error, Otomatisasi 3 Kalimat Rapor Mengalir Tanpa Jeda Titik Tengah</p>
         </div>
 
+        <!-- Main Workspace Card -->
         <div class="glass-panel rounded-3xl shadow-xl border border-slate-200 overflow-hidden flex flex-col space-y-0">
             
+            <!-- API Key Input Panel -->
             <div class="p-4 bg-amber-500/5 border-b border-slate-200 grid grid-cols-1 sm:grid-cols-4 gap-3 items-center">
                 <div class="sm:col-span-1">
                     <label class="block text-[10px] font-extrabold text-amber-700 uppercase tracking-widest">Google AI Studio API Key</label>
@@ -70,23 +59,26 @@
                 </div>
             </div>
 
+            <!-- Input Materi Pokok -->
             <div class="p-6 border-b border-slate-200 bg-white/40">
                 <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                     <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    Ketik Materi Pokok & Kompetensi Dasar (CP / TP Mapel)
+                    Ketik Materi Pokok & Kompetensi Dasar (CP / TP Semua Mapel)
                 </label>
-                <input type="text" id="materiInput" placeholder="Contoh: mengidentifikasi keragaman suku dan budaya / menganalisis komponen ekosistem" class="w-full bg-white border border-slate-200 rounded-2xl px-4 py-4 text-slate-800 font-bold text-sm shadow-inner placeholder:text-slate-400 focus:outline-none focus:border-emerald-500">
-                <p class="text-[11px] text-slate-400 font-semibold mt-2">*Sistem akan mengirim instruksi terstruktur secara langsung ke server Google AI Studio untuk hasil paling akurat.</p>
+                <input type="text" id="materiInput" placeholder="Contoh: mengidentifikasi keragaman suku, ras, agama, dan antar golongan yang ada di Indonesia" class="w-full bg-white border border-slate-200 rounded-2xl px-4 py-4 text-slate-800 font-bold text-sm shadow-inner placeholder:text-slate-400 focus:outline-none focus:border-emerald-500">
             </div>
 
+            <!-- Action Panel -->
             <div class="p-4 border-b border-slate-200 bg-white/50 text-center">
-                <button onclick="askGeminiStable()" id="btnGenerate" class="w-full btn-gradient text-white font-bold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-all cursor-pointer text-sm flex items-center justify-center gap-2">
+                <button onclick="askGeminiBulletproof()" id="btnGenerate" class="w-full btn-gradient text-white font-bold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-all cursor-pointer text-sm flex items-center justify-center gap-2">
                     🚀 Ambil 3 Opsi Kombinasi Kalimat Raport KBC
                 </button>
             </div>
 
+            <!-- Area 3 Kotak Output -->
             <div class="p-6 bg-slate-50/70 grid grid-cols-1 gap-6">
                 
+                <!-- Kotak Pilihan 1 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
                     <div class="flex justify-between items-start gap-4">
                         <div class="flex flex-wrap gap-1.5" id="tagsA">
@@ -100,6 +92,7 @@
                     </div>
                 </div>
 
+                <!-- Kotak Pilihan 2 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
                     <div class="flex justify-between items-start gap-4">
                         <div class="flex flex-wrap gap-1.5" id="tagsB">
@@ -113,6 +106,7 @@
                     </div>
                 </div>
 
+                <!-- Kotak Pilihan 3 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
                     <div class="flex justify-between items-start gap-4">
                         <div class="flex flex-wrap gap-1.5" id="tagsC">
@@ -130,24 +124,26 @@
         </div>
     </div>
 
+    <!-- Footnote -->
     <div class="text-center mt-6">
         <p class="text-[10px] text-slate-400 font-bold tracking-wider uppercase">Aplikasi Rekonstruksi Deskripsi Kurikulum Berbasis Cinta • 2026</p>
     </div>
 
+    <!-- JavaScript Core Stable Bypass Engine -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const savedKey = localStorage.getItem('gemini_api_key_kbc');
             if (savedKey) {
                 document.getElementById('apiKeyInput').value = savedKey;
             }
-            document.getElementById('materiInput').value = 'mengidentifikasi keragaman suku, ras, agama, dan antar golongan yang ada di Indonesia';
+            document.getElementById('materiInput').value = 'mengidentifikasi beragam suku, ras, agama, dan antar golongan yang ada di Indonesia';
         });
 
         document.getElementById('apiKeyInput').addEventListener('input', (e) => {
             localStorage.setItem('gemini_api_key_kbc', e.target.value.trim());
         });
 
-        // Filter ketat penghancur tanda titik di tengah kalimat
+        // Filter proteksi penghancur tanda titik di tengah kalimat panjang
         function cleanMiddlePeriods(text) {
             let cleaned = text.trim().replace(/^"|"$/g, '');
             if ((cleaned.match(/\./g) || []).length > 1) {
@@ -158,8 +154,8 @@
             return cleaned.replace(/\s+/g, ' ').replace(/\s\./g, '.');
         }
 
-        // Hit langsung ke Server Google AI Studio dengan konfigurasi CORS bawaan browser yang aman
-        async function askGeminiStable() {
+        // Hit langsung ke Server Google AI Studio dengan sistem kupas tuntas markdown block
+        async function askGeminiBulletproof() {
             const apiKey = document.getElementById('apiKeyInput').value.trim();
             const materi = document.getElementById('materiInput').value.trim();
             const btnGenerate = document.getElementById('btnGenerate');
@@ -168,7 +164,7 @@
             if (!materi) { alert('Kolom materi pelajaran kosong, harap diisi dulu.'); return; }
 
             btnGenerate.disabled = true;
-            btnGenerate.innerText = "⏳ Menghubungkan ke Server Google & Menulis Kalimat...";
+            btnGenerate.innerText = "⏳ Server Google sedang menenun rangkaian kalimat...";
             
             document.getElementById('outA').innerHTML = `<span class="text-emerald-600/50 animate-pulse font-semibold">Memproses Opsi A secara langsung...</span>`;
             document.getElementById('outB').innerHTML = `<span class="text-indigo-600/50 animate-pulse font-semibold">Memproses Opsi B secara langsung...</span>`;
@@ -183,16 +179,14 @@ ATURAN REKAYASA KALIMAT (MUTLAK):
 1. JANGAN PERNAH gunakan frasa pembuka kaku seperti "Menunjukkan penguasaan...", "Mampu...", atau "Menunjukkan kemampuan..." di awal kalimat pada semua opsi!
 2. Setiap pilihan KALIMAT WAJIB LANGSUNG dimulai dengan Kata Kerja Operasional (KKO) aktif (contoh: Menjelaskan, Memahami, Menganalisis, Mempraktikkan, Menghindari, Menerapkan, Mengidentifikasi, dsb) yang paling pas dengan materi.
 3. HANYA BOLEH ADA SATU TANDA TITIK (.) DI AKHIR MASING-MASING PILIHAN KALIMAT! DILARANG KERAS menggunakan tanda titik di tengah-tengah kalimat. Leburkan semua aspek ke dalam satu aliran kalimat panjang tunggal memakai konjungsi naratif manusia asli yang luwes.
-4. Berikan output dalam format JSON objek dengan struktur ketat dan presisi tanpa markdown block ataupun teks pengantar tambahan apa pun:
+4. Berikan output dalam format JSON objek dengan struktur ketat dan presisi:
 {"opsiA": {"pancaCinta": "Nama Panca Cinta A", "dimensi": "Nama Dimensi A", "kalimat": "Isi kalimat utuh"}, "opsiB": {"pancaCinta": "Nama Panca Cinta B", "dimensi": "Nama Dimensi B", "kalimat": "Isi kalimat utuh"}, "opsiC": {"pancaCinta": "Nama Panca Cinta C", "dimensi": "Nama Dimensi C", "kalimat": "Isi kalimat utuh"}}`;
 
-            // Menggunakan URL native Google resmi dengan penegasan mode koneksi CORS browser
             const targetUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
             try {
                 const response = await fetch(targetUrl, {
                     method: 'POST',
-                    mode: 'cors', // Menghalau masalah pemblokiran CORS pada browser modern
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         contents: [{ parts: [{ text: promptTriple }] }],
@@ -203,7 +197,14 @@ ATURAN REKAYASA KALIMAT (MUTLAK):
                 const data = await response.json();
                 
                 if (data.candidates && data.candidates[0].content.parts[0].text) {
-                    const jsonRaw = data.candidates[0].content.parts[0].text.trim();
+                    let jsonRaw = data.candidates[0].content.parts[0].text.trim();
+                    
+                    // KUNCI PERBAIKAN: Kupas tuntas jika AI nakal membungkus JSON dengan format markdown codeblock ```json ... ```
+                    if (jsonRaw.startsWith("```")) {
+                        jsonRaw = jsonRaw.replace(/^
+```json/i, "").replace(/^```/m, "").replace(/```$/, "").trim();
+                    }
+
                     const resultObj = JSON.parse(jsonRaw);
 
                     // Render badge label tag instrumen pilihan otomatis AI
@@ -216,13 +217,13 @@ ATURAN REKAYASA KALIMAT (MUTLAK):
                     document.getElementById('outB').innerText = cleanMiddlePeriods(resultObj.opsiB.kalimat);
                     document.getElementById('outC').innerText = cleanMiddlePeriods(resultObj.opsiC.kalimat);
                 } else {
-                    alert('Gagal mengekstrak struktur JSON dari server Google AI. Coba klik sekali lagi.');
+                    alert('Server Google AI mengirimkan format kosong. Silakan klik tombol sekali lagi.');
                 }
             } catch (error) {
-                console.error(error);
-                document.getElementById('outA').innerText = "Terjadi gangguan transmisi data ke server Google AI Studio.";
-                document.getElementById('outB').innerText = "Terjadi gangguan transmisi data ke server Google AI Studio.";
-                document.getElementById('outC').innerText = "Terjadi gangguan transmisi data ke server Google AI Studio.";
+                console.error("Detail JSON Parse Error:", error);
+                document.getElementById('outA').innerText = "Gagal memproses struktur teks akibat anomali format AI, silakan klik ulang.";
+                document.getElementById('outB').innerText = "Gagal memproses struktur teks akibat anomali format AI, silakan klik ulang.";
+                document.getElementById('outC').innerText = "Gagal memproses struktur teks akibat anomali format AI, silakan klik ulang.";
             } finally {
                 btnGenerate.disabled = false;
                 btnGenerate.innerText = "🚀 Ambil 3 Opsi Kombinasi Kalimat Raport KBC";
@@ -232,7 +233,7 @@ ATURAN REKAYASA KALIMAT (MUTLAK):
         // Salin Kotak Spesifik
         function copySpecificOutput(divId, btn) {
             const text = document.getElementById(divId).innerText;
-            if (!text || text.includes('Memproses') || text.includes('gangguan')) return;
+            if (!text || text.includes('Memproses') || text.includes('Gagal')) return;
             
             navigator.clipboard.writeText(text).then(() => {
                 const originalText = btn.innerText;
