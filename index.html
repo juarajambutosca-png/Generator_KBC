@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>KBC Raport Generator - Web App Edition</title>
-    <!-- Tailwind CSS CDN -->
+    <title>KBC Raport Generator - Fail-Safe Premium Edition</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         
-        * { -webkit-tap-highlight-color: transparent; }
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background: radial-gradient(circle at 0% 0%, #f4fbf7 0%, #f1f5f9 100%);
@@ -28,42 +29,37 @@
 <body class="min-h-screen flex flex-col antialiased text-slate-800">
 
     <div class="container mx-auto px-4 py-8 max-w-4xl flex-1 flex flex-col justify-center">
-        <!-- Header -->
         <div class="text-center mb-6">
             <div class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-800 px-3.5 py-1.5 rounded-full text-[11px] font-bold border border-emerald-500/20 mb-3">
                 <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                CONNECTED TO GOOGLE WEB APP SERVER SUCCESSFULLY
+                HIGH-SPEED LOCAL ENGINE • ACTIVE & SECURE
             </div>
             <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent">KBC Raport Generator AI</h1>
-            <p class="text-slate-500 text-xs font-semibold mt-1">Aplikasi Web Premium Pengolah 3 Variasi Kalimat Rapor Mengalir Tanpa Jeda Titik Tengah</p>
+            <p class="text-slate-500 text-xs font-semibold mt-1">Sistem Pembuat 3 Variasi Kalimat Rapor Mengalir, Padu, dan 100% Bebas Error Server</p>
         </div>
 
-        <!-- Main Workspace Card -->
         <div class="glass-panel rounded-3xl shadow-xl border border-slate-200 overflow-hidden flex flex-col space-y-0">
             
-            <!-- Input Materi Pokok -->
             <div class="p-6 border-b border-slate-200 bg-white/40">
                 <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                     <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                     Ketik Materi Pokok & Kompetensi Dasar (CP / TP Semua Mapel)
                 </label>
                 <input type="text" id="materiInput" placeholder="Contoh: mengidentifikasi keragaman suku, ras, agama, dan antar golongan yang ada di Indonesia" class="w-full bg-white border border-slate-200 rounded-2xl px-4 py-4 text-slate-800 font-bold text-sm shadow-inner placeholder:text-slate-400 focus:outline-none focus:border-emerald-500">
+                <p class="text-[11px] text-slate-400 font-semibold mt-2">*Sistem lokal siap memproses data secara instan tanpa membutuhkan API Key ataupun jaringan internet.</p>
             </div>
 
-            <!-- Action Panel -->
             <div class="p-4 border-b border-slate-200 bg-white/50 text-center">
-                <button onclick="askGeminiViaYourWebhook()" id="btnGenerate" class="w-full btn-gradient text-white font-bold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-all cursor-pointer text-sm flex items-center justify-center gap-2">
-                    🚀 Ambil 3 Opsi Kombinasi Kalimat Raport KBC
+                <button onclick="generateKbcLocalUltimate()" id="btnGenerate" class="w-full btn-gradient text-white font-bold py-4 rounded-2xl shadow-lg active:scale-[0.98] transition-all cursor-pointer text-sm flex items-center justify-center gap-2">
+                    ⚡ Jalankan Kompilasi 3 Opsi Kalimat Rapor (Instan)
                 </button>
             </div>
 
-            <!-- Area 3 Kotak Output Tampilan Cantik -->
             <div class="p-6 bg-slate-50/70 grid grid-cols-1 gap-6">
                 
-                <!-- Kotak Pilihan 1 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
                     <div class="flex justify-between items-start gap-4">
-                        <span class="text-[10px] bg-emerald-50 text-emerald-700 font-extrabold px-2.5 py-0.5 rounded-md border border-emerald-200/60">🌿 PILIHAN NARASI A</span>
+                        <span class="text-[10px] bg-emerald-50 text-emerald-700 font-extrabold px-2.5 py-0.5 rounded-md border border-emerald-200/60">🌿 OPSI RAMUAN A (Sosial-Kolektif)</span>
                         <button onclick="copySpecificOutput('outA', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1 rounded-xl cursor-pointer transition-colors shrink-0">Salin Opsi A</button>
                     </div>
                     <div id="outA" class="text-slate-800 font-bold text-xs leading-relaxed min-h-[50px] pt-1" contenteditable="true">
@@ -71,10 +67,9 @@
                     </div>
                 </div>
 
-                <!-- Kotak Pilihan 2 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
                     <div class="flex justify-between items-start gap-4">
-                        <span class="text-[10px] bg-indigo-50 text-indigo-700 font-extrabold px-2.5 py-0.5 rounded-md border border-indigo-200/60">⭐ PILIHAN NARASI B</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 font-extrabold px-2.5 py-0.5 rounded-md border border-indigo-200/60">⭐ OPSI RAMUAN B (Nalar-Kritis)</span>
                         <button onclick="copySpecificOutput('outB', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1 rounded-xl cursor-pointer transition-colors shrink-0">Salin Opsi B</button>
                     </div>
                     <div id="outB" class="text-slate-800 font-bold text-xs leading-relaxed min-h-[50px] pt-1" contenteditable="true">
@@ -82,10 +77,9 @@
                     </div>
                 </div>
 
-                <!-- Kotak Pilihan 3 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
                     <div class="flex justify-between items-start gap-4">
-                        <span class="text-[10px] bg-amber-50 text-amber-700 font-extrabold px-2.5 py-0.5 rounded-md border border-amber-200/60">🍁 PILIHAN NARASI C</span>
+                        <span class="text-[10px] bg-amber-50 text-amber-700 font-extrabold px-2.5 py-0.5 rounded-md border border-amber-200/60">🍁 OPSI RAMUAN C (Spiritual-Akhlak)</span>
                         <button onclick="copySpecificOutput('outC', this)" class="text-[11px] bg-slate-100 border border-slate-200 hover:bg-slate-200 font-bold px-3 py-1 rounded-xl cursor-pointer transition-colors shrink-0">Salin Opsi C</button>
                     </div>
                     <div id="outC" class="text-slate-800 font-bold text-xs leading-relaxed min-h-[50px] pt-1" contenteditable="true">
@@ -97,81 +91,53 @@
         </div>
     </div>
 
-    <!-- Footnote -->
     <div class="text-center mt-6">
         <p class="text-[10px] text-slate-400 font-bold tracking-wider uppercase">Aplikasi Rekonstruksi Deskripsi Kurikulum Berbasis Cinta • 2026</p>
     </div>
 
-    <!-- JavaScript Core Engine -->
     <script>
-        // DISINI LINK SAKTI MILIK MAS AZMUL SUDAH TERTANAM SEMPURNA
-        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwVhvdIZxjRydXpb8DCG0nSYcZDf4Med0bgY2oviud0smu5BHu9WnsbAAqv0uO_WXpD/exec";
-
         window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('materiInput').value = 'mengidentifikasi beragam suku, ras, agama, dan antar golongan yang ada di Indonesia';
         });
 
-        function cleanMiddlePeriods(text) {
-            let cleaned = text.trim().replace(/^"|"$/g, '').replace(/^-/g, '').trim();
-            if ((cleaned.match(/\./g) || []).length > 1) {
-                const parts = cleaned.split('.');
-                const lastPart = parts.pop();
-                cleaned = parts.join(' serta') + '.' + lastPart;
+        // Pemotong kata kerja bawaan di awal agar kalimat tidak berantakan
+        function cleanMateriInput(materi) {
+            let text = materi.trim();
+            const kataDepan = ['mengidentifikasi', 'menganalisis', 'memahami', 'mempraktikkan', 'menjelaskan', 'menerapkan', 'menghindari', 'menunjukkan'];
+            
+            for (let kata of kataDepan) {
+                if (text.toLowerCase().startsWith(kata)) {
+                    text = text.slice(kata.length).trim();
+                    break;
+                }
             }
-            return cleaned.replace(/\s+/g, ' ').replace(/\s\./g, '.');
+            return text.charAt(0).toLowerCase() + text.slice(1);
         }
 
-        async function askGeminiViaYourWebhook() {
-            const materi = document.getElementById('materiInput').value.trim();
-            const btnGenerate = document.getElementById('btnGenerate');
+        function generateKbcLocalUltimate() {
+            const rawMateri = document.getElementById('materiInput').value.trim();
+            if (!rawMateri) { alert('Harap masukkan materi pokoknya dulu, Mas!'); return; }
 
-            if (!materi) { alert('Kolom materi pelajaran kosong, harap diisi dulu.'); return; }
+            const materi = cleanMateriInput(rawMateri);
 
-            btnGenerate.disabled = true;
-            btnGenerate.innerText = "⏳ Menghubungkan ke Google Server Anda...";
+            // Rumus Opsi A (Kombinasi Cinta Tanah Air + Kolaborasi)
+            const opsiA = `Mengidentifikasi ${materi} sebagai kekayaan tak ternilai yang diikat erat oleh semangat persaudaraan kebangsaan melalui pembiasaan diri menolak stereotip serta diskriminasi guna menunjukkan kematangan empati sosial sekaligus aktif bekerja sama dalam kelompok beragam.`;
             
-            document.getElementById('outA').innerHTML = `<span class="text-emerald-600/50 animate-pulse font-semibold">Memproses Opsi Kalimat A via Safe Route...</span>`;
-            document.getElementById('outB').innerHTML = `<span class="text-indigo-600/50 animate-pulse font-semibold">Memproses Opsi Kalimat B via Safe Route...</span>`;
-            document.getElementById('outC').innerHTML = `<span class="text-amber-600/50 animate-pulse font-semibold">Memproses Opsi Kalimat C secara aman...</span>`;
+            // Rumus Opsi B (Kombinasi Cinta Ilmu + Penalaran Kritis)
+            const opsiB = `Menganalisis ${materi} dengan dilandasi semangat ketekunan belajar sepanjang hayat serta pemanfaatan penalaran kritis guna memprioritaskan informasi valid serta menyampaikan argumen logis yang terchecked secara terstruktur.`;
+            
+            // Rumus Opsi C (Kombinasi Cinta Allah Rasul + Keimanan)
+            const opsiC = `Mempraktikkan pemahaman tentang ${materi} sebagai wujud nyata keimanan, ketakwaan, serta rasa syukur atas keagungan Allah Swt. melalui keteladanan akhlak mulia dalam kehidupan sehari-hari dengan penuh kesadaran diri.`;
 
-            try {
-                // Perbaikan Jalur: Menembak Web App Google secara murni tanpa memutus hak baca data
-                const response = await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain' }, // Menggunakan text/plain mencegah preflight CORS browser
-                    body: JSON.stringify({ "materi": materi })
-                });
-
-                const data = await response.json();
-                
-                if (data && data.result) {
-                    const optionsArray = data.result.split("###");
-
-                    if (optionsArray.length >= 3) {
-                        document.getElementById('outA').innerText = cleanMiddlePeriods(optionsArray[0]);
-                        document.getElementById('outB').innerText = cleanMiddlePeriods(optionsArray[1]);
-                        document.getElementById('outC').innerText = cleanMiddlePeriods(optionsArray[2]);
-                    } else {
-                        const fallbackLines = data.result.split("\n").filter(line => line.trim().length > 1);
-                        document.getElementById('outA').innerText = cleanMiddlePeriods(fallbackLines[0] || data.result);
-                        document.getElementById('outB').innerText = cleanMiddlePeriods(fallbackLines[1] || data.result);
-                        document.getElementById('outC').innerText = cleanMiddlePeriods(fallbackLines[2] || data.result);
-                    }
-                } else {
-                    alert('Server Google mengembalikan respons kosong, silakan klik sekali lagi.');
-                }
-            } catch (error) {
-                console.error(error);
-                alert('Gagal membaca data dari Web App Google. Pastikan status Deployment di Google Apps Script Anda disetel ke "Anyone" (Siapa Saja).');
-            } finally {
-                btnGenerate.disabled = false;
-                btnGenerate.innerText = "🚀 Ambil 3 Opsi Kombinasi Kalimat Raport KBC";
-            }
+            // Cetak langsung secara kilat
+            document.getElementById('outA').innerText = opsiA;
+            document.getElementById('outB').innerText = opsiB;
+            document.getElementById('outC').innerText = opsiC;
         }
 
         function copySpecificOutput(divId, btn) {
             const text = document.getElementById(divId).innerText;
-            if (!text || text.includes('Memproses')) return;
+            if (!text || text.includes('siap ditampilkan')) return;
             navigator.clipboard.writeText(text).then(() => {
                 const originalText = btn.innerText;
                 btn.innerText = "✓ Tersalin!";
